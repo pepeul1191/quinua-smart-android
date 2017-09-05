@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="amarilloQuinua">#FBB746</color>
+    <color name="rojoQuinua">#FF1438</color>
+    <color name="moradoQuinua">#CA003F</color>
+    <color name="rosaQuinua">#DC616D</color>
+    <color name="verdeQuinua">#CBCB40</color>
+    <color name="blancoQuinua">#FFFFFF</color>
 </resources>
