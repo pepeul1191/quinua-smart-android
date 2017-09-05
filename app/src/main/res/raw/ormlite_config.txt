@@ -1,0 +1,19 @@
+# --table-start--
+dataClass=models.Sesion
+tableName=tb_sesion
+# --table-fields-start--
+# --field-start--
+fieldName=id
+columnName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=llave
+columnName=llave
+# --field-end--
+# --field-start--
+# --field-start--
+fieldName=valor
+columnName=valor
+# --field-end--
+#################################
