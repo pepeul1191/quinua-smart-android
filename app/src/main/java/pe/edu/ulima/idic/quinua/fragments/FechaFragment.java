@@ -3,9 +3,7 @@ package pe.edu.ulima.idic.quinua.fragments;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -15,6 +13,9 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import pe.edu.ulima.idic.quinua.R;
+import pe.edu.ulima.idic.quinua.activities.HistorialActivity;
 
 public class FechaFragment extends DialogFragment implements TextView.OnEditorActionListener {
     private static final String ARG_PARAM1 = "param1";

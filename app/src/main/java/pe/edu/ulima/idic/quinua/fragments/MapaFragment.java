@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -21,6 +19,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import pe.edu.ulima.idic.quinua.R;
+import pe.edu.ulima.idic.quinua.activities.EstacionActivity;
 import pe.edu.ulima.idic.quinua.utils.Constants;
 import pe.edu.ulima.idic.quinua.utils.Httparty;
 

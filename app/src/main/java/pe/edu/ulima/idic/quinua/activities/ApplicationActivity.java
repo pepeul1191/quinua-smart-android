@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import pe.edu.ulima.idic.quinua.R;
+import pe.edu.ulima.idic.quinua.fragments.MapaFragment;
+
 public class ApplicationActivity extends AppCompatActivity {
 
     private TextView mTextMessage;

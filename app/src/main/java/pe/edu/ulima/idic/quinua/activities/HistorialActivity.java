@@ -14,7 +14,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.ArrayList;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
@@ -26,14 +29,8 @@ import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import utils.Constants;
-import utils.Httparty;
+import pe.edu.ulima.idic.quinua.utils.Constants;
+import pe.edu.ulima.idic.quinua.utils.Httparty;
 
 public class HistorialActivity extends AppCompatActivity implements OnChartGestureListener, OnChartValueSelectedListener, FechaFragment.OnFragmentInteractionListener{
     private LineChart mChart;

@@ -12,19 +12,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-
 import org.json.JSONArray;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.HashMap;
-
-import softweb.pe.testpp.EstacionActivity;
-import softweb.pe.testpp.HistorialActivity;
-import softweb.pe.testpp.R;
-import utils.Constants;
-import utils.Httparty;
+import pe.edu.ulima.idic.quinua.R;
+import pe.edu.ulima.idic.quinua.activities.HistorialActivity;
 
 
 public class EstacionesAdapter extends BaseAdapter implements ListAdapter{

@@ -1,9 +1,6 @@
 package pe.edu.ulima.idic.quinua.activities;
 
-import android.app.Activity;
-
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
@@ -16,15 +13,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.maps.GoogleMap;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
+import pe.edu.ulima.idic.quinua.R;
+import pe.edu.ulima.idic.quinua.fragments.ReenvioFragment;
 import pe.edu.ulima.idic.quinua.models.Sesion;
 import pe.edu.ulima.idic.quinua.utils.Constants;
 import pe.edu.ulima.idic.quinua.utils.DatabaseHelper;
