@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReenvioFragment"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="259dp"
+        android:layout_height="wrap_content"
+        android:text="Ingrese el correo asociado a su cuenta para que reciba por ese medio su contraseña"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/txtCorreo"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnReenviar"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnReenviar"
+        android:layout_marginTop="30dp"
+        android:background="#E9E9E9"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#454545" />
+
+    <Button
+        android:id="@+id/btnReenviar"
+        android:layout_width="258dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtCorreo"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/button_white"
+        android:onClick="btnReenviarClick"
+        android:padding="15dp"
+        android:text="Reenviar Contraseña"
+        android:textSize="14dp" />
+
+</LinearLayout>

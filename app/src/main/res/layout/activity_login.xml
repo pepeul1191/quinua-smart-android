@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="softweb.pe.testpp.LoginActivity"
+    android:id="@+id/layoutLogin"
+    android:background="#ca003f">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:padding="20dp"
+        android:paddingRight="100dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_quinua_smart_texto_logo"
+            android:tint="@color/blancoQuinua"
+            android:layout_marginBottom="26dp"
+            android:layout_above="@+id/txtUsuario"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/txtUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:hint="Usuario"
+            android:inputType="textPersonName"
+            android:background="#D23465"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FDFDFD"
+            android:padding="10dp"
+            android:layout_above="@+id/txtContrasenia"
+            android:layout_toRightOf="@+id/lblMensaje"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:id="@+id/txtContrasenia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:hint="Contraseña"
+            android:textColorHint="#FDFDFD"
+            android:background="#D23465"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:layout_above="@+id/btnIngresar"
+            android:layout_toRightOf="@+id/lblMensaje"
+            android:layout_marginBottom="20dp"
+            android:layout_alignRight="@+id/txtUsuario"
+            android:layout_alignEnd="@+id/txtUsuario" />
+
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/blancoQuinua"
+            android:text="INGRESAR"
+            android:textColor="#343434"
+            android:onClick="btnIngresarClick"
+            android:layout_above="@+id/lblReenvio"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/lblMensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtContrasenia"
+            />
+
+        <TextView
+            android:id="@+id/lblReenvio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reenvío de contraseña"
+            android:textColor="@color/blancoQuinua"
+            android:onClick="lblReenvioClick"
+            android:layout_marginBottom="41dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

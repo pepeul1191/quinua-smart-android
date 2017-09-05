@@ -1,0 +1,26 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="softweb.pe.testpp.FechaFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnSelcionarFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/rojoQuinua"
+            android:textColor="@color/blancoQuinua"
+            android:onClick="btnSelcionarFechaClick"
+            android:text="SELECCIONAR" />
+    </LinearLayout>
+</FrameLayout>
