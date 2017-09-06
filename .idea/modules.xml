@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/quinua_smart.iml" filepath="$PROJECT_DIR$/quinua_smart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quinua-smart.iml" filepath="$PROJECT_DIR$/quinua-smart.iml" />
     </modules>
   </component>
 </project>

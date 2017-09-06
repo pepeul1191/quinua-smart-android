@@ -34,15 +34,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA3F8CQMAE147iISaPf_dQ3tSda2oOoec0  " />
         <!--
-        <activity android:name=".activities.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        -->
-        <!--
         ACTIVITIES
         -->
         <activity
@@ -53,14 +44,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".activities.ApplicationActivity"
-            android:label="@string/title_activity_application">
+            android:label="Quinua Smart">
+        </activity>
+        <activity
+            android:name=".activities.EstacionActivity"
+            android:label="Detalle de Estación">
         </activity>
     </application>
 </manifest>
