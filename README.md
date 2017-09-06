@@ -3,7 +3,8 @@
 Requisitos de software previamente instalado:
 
 + Java JDK8
-+ c
++ ORMLite
++ CompileSdkVersion 25
 
 Ruta del repositorio del backend:
 
@@ -23,14 +24,15 @@ Ruta del servicio del backend:
 
 ### Fuentes externas:
 
-+ Or
++ http://www.androidbegin.com/tutorial/android-ormlite-with-sqlite-database-tutorial/
 
 ### TODO
 
-+ En 
++ Comprobar integración con los layouts
++ Mejorar la distribución de los layouts en carpetas según activity, adapter y fragment
 
 ---
 
  Thanks/Credits
 
-    Pepe Valdivia: developer Software Web Perú [http://softweb.pe]
+    Pepe Valdivia: developer ULima - IDIC [http://www.ulima.edu.pe/]
