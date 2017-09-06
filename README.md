@@ -14,7 +14,7 @@ Ruta del servicio del backend:
 
     https://powerful-journey-11909.herokuapp.com/
   
-### Rutas
+### Rutas del aplicativo móvil con el servicio web
 
 + GET -> /estacion/listar
 + GET -> /estacion/detalle/@id
