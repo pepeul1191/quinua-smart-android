@@ -29,6 +29,8 @@ import com.github.mikephil.charting.listener.ChartTouchListener;
 import com.github.mikephil.charting.listener.OnChartGestureListener;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
+import pe.edu.ulima.idic.quinua.R;
+import pe.edu.ulima.idic.quinua.fragments.FechaFragment;
 import pe.edu.ulima.idic.quinua.utils.Constants;
 import pe.edu.ulima.idic.quinua.utils.Httparty;
 
