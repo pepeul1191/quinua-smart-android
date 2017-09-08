@@ -28,16 +28,14 @@ public class EstacionActivity extends AppCompatActivity {
         this.txtDescipcion = (TextView) findViewById(R.id.txtDescipcion);
 
         String detalleEstacionString = getIntent().getStringExtra("detalleEstacion");
-        Log.d("onMarkerClick - EstacionActivity", detalleEstacionString);
+        //Log.d("onMarkerClick - EstacionActivity", detalleEstacionString);
 
         JSONObject jobject = null;
         try {
             jobject = new JSONObject(detalleEstacionString);
             this.txtNombre.setText(jobject.getString("nombre_estacion"));
             this.txtDescipcion.setText(jobject.getString("descripcion"));
-
             //JSONArray sensoresJsonArray = new JSONArray(httpartyEstacion.getRpta());
-
             JSONArray sensoresJsonArray = jobject.getJSONArray("sensores");
 
             ListView listSensores = (ListView) findViewById(R.id.listSensores);

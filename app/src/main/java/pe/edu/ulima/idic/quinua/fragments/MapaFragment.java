@@ -38,6 +38,11 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Google
     public MapaFragment(){
     }
 
+    public static MapaFragment newInstance() {
+        MapaFragment fragment = new MapaFragment();
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_mapa, container, false);

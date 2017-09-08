@@ -33,7 +33,7 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter{
         this.iconos.put("Velocidad (m/s)","ic_viento");
         this.iconos.put("Grados centígrados (°C)","ic_temperatura");
         this.iconos.put("milibares","ic_lluvia");
-        this.iconos.put("Presion (mmHg)","ic_presion");
+        this.iconos.put("mmHg","ic_presion");
         this.iconos.put("Humedad relativa del aire (%)","ic_humedad");
         this.resources = resources;
         this.packageName = packageName;
