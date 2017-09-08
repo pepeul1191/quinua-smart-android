@@ -1,34 +1,32 @@
-package pe.edu.ulima.idic.quinua.fragments;
+package pe.edu.ulima.idic.quinua.dialogs;
 
-import android.app.Activity;
-import android.app.DialogFragment;
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import pe.edu.ulima.idic.quinua.R;
 
+public class MenuSensorFragment extends DialogFragment {
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
-public class ReenvioFragment extends DialogFragment {
+    private String mParam1;
+    private String mParam2;
+
     private OnFragmentInteractionListener mListener;
-    private Button btnReenviar;
-    private EditText txtCorreo;
-    Activity activity;
 
-    public ReenvioFragment() {
+    public MenuSensorFragment() {
         // Required empty public constructor
     }
 
-    public static ReenvioFragment newInstance(String param1, String param2) {
-        ReenvioFragment fragment = new ReenvioFragment();
+    public static MenuSensorFragment newInstance(String param1, String param2) {
+        MenuSensorFragment fragment = new MenuSensorFragment();
         Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -36,32 +34,17 @@ public class ReenvioFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_reenvio, container, false);
-        getDialog().setTitle("Simple Dialog");
-
-        Log.d("FRAGMENT", "onCreateView");
-
-        btnReenviar = (Button) view.findViewById(R.id.btnReenviar);
-        txtCorreo = (EditText) view.findViewById(R.id.txtCorreo);
-
-        btnReenviar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity = getActivity();
-                Toast.makeText(v.getContext(), "correo ingresado : " + txtCorreo.getText().toString(), Toast.LENGTH_SHORT).show();
-                Log.d("FRAGMENT CLICK", txtCorreo.getText().toString());
-            }
-        });
-
-        //return super.onCreateView(inflater, container, savedInstanceState);
-        /*return view;*/
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_menu_sensor, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -70,7 +53,7 @@ public class ReenvioFragment extends DialogFragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
+    /*
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -81,14 +64,23 @@ public class ReenvioFragment extends DialogFragment {
                     + " must implement OnFragmentInteractionListener");
         }
     }
-
+    */
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
 
-
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

@@ -1,10 +1,11 @@
 package pe.edu.ulima.idic.quinua.adapters;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.os.StrictMode;
+import android.net.Uri;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
 import pe.edu.ulima.idic.quinua.R;
-import pe.edu.ulima.idic.quinua.activities.HistorialActivity;
+import pe.edu.ulima.idic.quinua.dialogs.MenuSensorFragment;
 
 
-public class EstacionesAdapter extends BaseAdapter implements ListAdapter{
+public class EstacionesAdapter extends BaseAdapter implements ListAdapter, MenuSensorFragment.OnFragmentInteractionListener{
     private final Activity activity;
     private final JSONArray jsonArray;
     private final Resources resources;
@@ -95,9 +96,27 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter{
                     @Override
                     public void onClick(View view) {
                         try{
-                            Intent myIntent = new Intent(activity, HistorialActivity.class);
-                            myIntent.putExtra("ide_sensor", view.getTag() + "");
-                            activity.startActivity(myIntent);
+                            //Intent myIntent = new Intent(activity, HistorialActivity.class);
+                            //myIntent.putExtra("ide_sensor", view.getTag() + "");
+                            //activity.startActivity(myIntent);
+
+                            /*
+                            AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
+                            View mView = getLayoutInflater().inflate(R.layout.fragment_menu_sensor, null);
+                            FragmentManager fm = getFragmentManager();
+                            MenuSensorFragment dialogFragment = new MenuSensorFragment();
+                            dialogFragment.show(fm, "Sample Fragment");
+                            */
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+
+                            view = activity.getLayoutInflater().inflate(R.layout.fragment_menu_sensor, null);
+                            builder.setView(view)
+                                    .setPositiveButton("OK", null)
+                                    .setNegativeButton("Cancel", null);
+
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
                         }catch (Exception e){
                             Log.d("TRY1", e.toString());
                         }
@@ -111,4 +130,9 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter{
         return convertView;
     }
 
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }

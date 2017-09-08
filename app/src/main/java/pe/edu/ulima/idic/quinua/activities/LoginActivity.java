@@ -20,7 +20,7 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
 import pe.edu.ulima.idic.quinua.R;
-import pe.edu.ulima.idic.quinua.fragments.ReenvioFragment;
+import pe.edu.ulima.idic.quinua.dialogs.ReenvioFragment;
 import pe.edu.ulima.idic.quinua.models.Sesion;
 import pe.edu.ulima.idic.quinua.utils.Constants;
 import pe.edu.ulima.idic.quinua.utils.DatabaseHelper;
