@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +39,10 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter, MenuS
         this.iconos.put("Humedad relativa del aire (%)","ic_humedad");
         this.resources = resources;
         this.packageName = packageName;
+    }
+
+    public Resources getResources() {
+        return resources;
     }
 
     @Override
@@ -95,31 +100,36 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter, MenuS
                 convertView.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
-                        try{
-                            //Intent myIntent = new Intent(activity, HistorialActivity.class);
-                            //myIntent.putExtra("ide_sensor", view.getTag() + "");
-                            //activity.startActivity(myIntent);
+                    try{
+                        //Intent myIntent = new Intent(activity, HistorialActivity.class);
+                        //myIntent.putExtra("ide_sensor", view.getTag() + "");
+                        //activity.startActivity(myIntent);
 
-                            /*
-                            AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
-                            View mView = getLayoutInflater().inflate(R.layout.fragment_menu_sensor, null);
-                            FragmentManager fm = getFragmentManager();
-                            MenuSensorFragment dialogFragment = new MenuSensorFragment();
-                            dialogFragment.show(fm, "Sample Fragment");
-                            */
+                        /*
+                        AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
+                        View mView = getLayoutInflater().inflate(R.layout.fragment_menu_sensor, null);
+                        FragmentManager fm = getFragmentManager();
+                        MenuSensorFragment dialogFragment = new MenuSensorFragment();
+                        dialogFragment.show(fm, "Sample Fragment");
 
-                            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
-                            view = activity.getLayoutInflater().inflate(R.layout.fragment_menu_sensor, null);
-                            builder.setView(view)
-                                    .setPositiveButton("OK", null)
-                                    .setNegativeButton("Cancel", null);
+                        ListView listSensores = (ListView) findViewById(R.id.listSensores);
+                        this.estacionesAdapter = new EstacionesAdapter(EstacionActivity.this, sensoresJsonArray, getResources(), getPackageName());
+                        listSensores.setAdapter(this.estacionesAdapter);
+                        */
+                        View parent = (View)view.getParent();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                        view = activity.getLayoutInflater().inflate(R.layout.fragment_menu_sensor, (ViewGroup) parent, false);
 
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-                        }catch (Exception e){
-                            Log.d("TRY1", e.toString());
-                        }
+                        ListView listSensores = (ListView) parent.findViewById(R.id.menu_list);
+                        listSensores.setAdapter(new MenuEstacionAdapter());
+
+                        builder.setView(view);
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }catch (Exception e){
+                        Log.d("TRYXD", e.toString());
+                    }
                     }
                 });
             } catch (JSONException e) {
