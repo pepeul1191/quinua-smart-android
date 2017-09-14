@@ -122,7 +122,7 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter, MenuS
                         view = activity.getLayoutInflater().inflate(R.layout.fragment_menu_sensor, (ViewGroup) parent, false);
 
                         ListView listSensores = (ListView) parent.findViewById(R.id.menu_list);
-                        listSensores.setAdapter(new MenuEstacionAdapter());
+                        //listSensores.setAdapter(new MenuEstacionAdapter());
 
                         builder.setView(view);
                         AlertDialog dialog = builder.create();

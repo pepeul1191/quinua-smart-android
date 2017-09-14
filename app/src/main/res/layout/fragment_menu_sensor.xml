@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     tools:context="pe.edu.ulima.idic.quinua.dialogs.MenuSensorFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hola"/>
+
     <ListView
         android:id="@+id/menu_list"
         android:layout_width="match_parent"
