@@ -20,12 +20,12 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
     private List<String> items;
 
-    public MenuEstacionAdapter() {
+    public MenuEstacionAdapter(Context context) {
         List<String> items = new ArrayList<>();
         items.add("Promedio por día en rango de fechas");
         items.add("Rango de tiempo por día");
         items.add("Máximos y minimos por día");
-        //this.context = context;
+        this.context = context;
         this.items = items;
     }
 
@@ -54,8 +54,7 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
 
         if (convertView == null) {
             // Create a new view into the list.
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rowView = inflater.inflate(R.layout.adapter_menu_sensor, parent, false);
         }
 
@@ -66,7 +65,7 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
 
         if(null != item){
             menuSensorItem.setText(item);
-
+            /*
             convertView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
@@ -85,6 +84,7 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
                     }
                 }
             });
+            */
         }
 
         return rowView;
