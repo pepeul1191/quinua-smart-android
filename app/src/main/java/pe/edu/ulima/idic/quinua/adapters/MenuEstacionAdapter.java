@@ -18,15 +18,21 @@ import pe.edu.ulima.idic.quinua.R;
 
 public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
+    private int idSensor;
     private List<String> items;
 
-    public MenuEstacionAdapter(Context context) {
+    public MenuEstacionAdapter(Context context, int idSendor) {
         List<String> items = new ArrayList<>();
         items.add("Promedio por día en rango de fechas");
         items.add("Rango de tiempo por día");
         items.add("Máximos y minimos por día");
         this.context = context;
         this.items = items;
+        this.idSensor = idSendor;
+    }
+
+    public int getIdSensor() {
+        return this.idSensor;
     }
 
     @Override
@@ -59,32 +65,24 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
         }
 
         // Set data into the view.
-        TextView menuSensorItem = (TextView) rowView.findViewById(R.id.txtItemMenu);
-
+        final TextView menuSensorItem = (TextView) rowView.findViewById(R.id.txtItemMenu);
         String item = this.items.get(position);
-
+        //Log.d("ide_sensor", this.getIdSensor() + "");
         if(null != item){
             menuSensorItem.setText(item);
-            /*
-            convertView.setOnClickListener(new View.OnClickListener(){
+            menuSensorItem.setTag(this.getIdSensor());
+            menuSensorItem.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
                     try{
-                        AlertDialog.Builder alertbox = new AlertDialog.Builder(view.getRootView().getContext());
-                        alertbox.setTitle("XD");
-                        //alertbox.setMessage("No Internet Connection");
-                        alertbox.setNeutralButton("Cancelar",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface arg0, int arg1) {
-                                    }
-                                });
-                        alertbox.show();
+                        Log.d("idSensor",(Integer)view.getTag() + "");
+                        String x = (String) menuSensorItem.getText();
+                        Log.d("TEXTO", x);
                     }catch (Exception e){
                         Log.d("TRY1", e.toString());
                     }
                 }
             });
-            */
         }
 
         return rowView;

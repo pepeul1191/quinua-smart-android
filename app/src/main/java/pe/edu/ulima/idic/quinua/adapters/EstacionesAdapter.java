@@ -85,7 +85,7 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter, MenuS
         TextView txtDescripcionTipo = (TextView)convertView.findViewById(R.id.txtDescripcionTipo);
         ImageView imgIcono = (ImageView)convertView.findViewById(R.id.imgIcono);
 
-        JSONObject sensorJson = getItem(position);
+        final JSONObject sensorJson = getItem(position);
         if(null != sensorJson){
             try {
                 String mDrawableName = this.iconos.get(sensorJson.getString("des_tipo"));
@@ -101,28 +101,12 @@ public class EstacionesAdapter extends BaseAdapter implements ListAdapter, MenuS
                     @Override
                     public void onClick(View view) {
                     try{
-                        //Intent myIntent = new Intent(activity, HistorialActivity.class);
-                        //myIntent.putExtra("ide_sensor", view.getTag() + "");
-                        //activity.startActivity(myIntent);
-
-                        /*
-                        AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
-                        View mView = getLayoutInflater().inflate(R.layout.fragment_menu_sensor, null);
-                        FragmentManager fm = getFragmentManager();
-                        MenuSensorFragment dialogFragment = new MenuSensorFragment();
-                        dialogFragment.show(fm, "Sample Fragment");
-
-
-                        ListView listSensores = (ListView) findViewById(R.id.listSensores);
-                        this.estacionesAdapter = new EstacionesAdapter(EstacionActivity.this, sensoresJsonArray, getResources(), getPackageName());
-                        listSensores.setAdapter(this.estacionesAdapter);
-                        */
                         View parent = (View)view.getParent();
                         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
                         view = activity.getLayoutInflater().inflate(R.layout.fragment_menu_sensor, (ViewGroup) parent, false);
-
+                        TextView idSensorTextView = (TextView) view.findViewById(R.id.idSensor);
                         ListView listSensores = (ListView) view.findViewById(R.id.menu_list);
-                        listSensores.setAdapter(new MenuEstacionAdapter(parent.getContext()));
+                        listSensores.setAdapter(new MenuEstacionAdapter(parent.getContext(), sensorJson.getInt("ide_sensor")));
 
                         builder.setView(view);
                         AlertDialog dialog = builder.create();
