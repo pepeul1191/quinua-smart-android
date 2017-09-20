@@ -29,7 +29,6 @@ Ruta del servicio del backend:
 ### TODO
 
 + Comprobar integración con los layouts
-+ Mejorar la distribución de los layouts en carpetas según activity, adapter y fragment
 
 ---
 

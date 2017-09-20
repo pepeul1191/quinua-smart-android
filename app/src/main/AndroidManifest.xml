@@ -17,9 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--
-        METAS
-        -->
+
+        <!--         METAS -->
         <meta-data
             android:name="AA_DB_NAME"
             android:value="db_local.db" />
@@ -29,32 +28,30 @@
         <meta-data
             android:name="AA_MODELS"
             android:value="pe.edu.ulima.idic.quinua.models.Sesion" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA3F8CQMAE147iISaPf_dQ3tSda2oOoec0  " />
-        <!--
-        ACTIVITIES
-        -->
+        <!--         ACTIVITIES -->
         <activity
             android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.ApplicationActivity"
             android:label="Quinua Smart">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.EstacionActivity"
-            android:label="Detalle de Estación">
-        </activity>
+            android:label="Detalle de Estación"></activity>
+        <activity android:name=".activities.ReporteActivity"
+            android:label="Reporte del Sensor"></activity>
     </application>
+
 </manifest>

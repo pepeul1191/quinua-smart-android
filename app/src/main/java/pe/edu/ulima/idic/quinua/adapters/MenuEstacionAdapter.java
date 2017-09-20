@@ -2,6 +2,7 @@ package pe.edu.ulima.idic.quinua.adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.ulima.idic.quinua.R;
+import pe.edu.ulima.idic.quinua.activities.ReporteActivity;
 
 public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
     private Context context;
@@ -29,6 +31,10 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
         this.context = context;
         this.items = items;
         this.idSensor = idSendor;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     public int getIdSensor() {
@@ -55,7 +61,7 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         View rowView = convertView;
 
         if (convertView == null) {
@@ -74,13 +80,16 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
             menuSensorItem.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
-                    try{
-                        Log.d("idSensor",(Integer)view.getTag() + "");
-                        String x = (String) menuSensorItem.getText();
-                        Log.d("TEXTO", x);
-                    }catch (Exception e){
-                        Log.d("TRY1", e.toString());
-                    }
+                try{
+                    Log.d("idSensor",(Integer)view.getTag() + "");
+                    String x = (String) menuSensorItem.getText();
+                    Log.d("TEXTO", x);
+
+                    Intent intent = new Intent(getContext(), ReporteActivity.class);
+                    getContext().startActivity(intent);
+                }catch (Exception e){
+                    Log.d("TRY1", e.toString());
+                }
                 }
             });
         }
