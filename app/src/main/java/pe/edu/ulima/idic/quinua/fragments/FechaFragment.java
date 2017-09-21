@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import pe.edu.ulima.idic.quinua.R;
 import pe.edu.ulima.idic.quinua.activities.HistorialActivity;
+import pe.edu.ulima.idic.quinua.activities.ReporteActivity;
 
 public class FechaFragment extends DialogFragment implements TextView.OnEditorActionListener {
     private static final String ARG_PARAM1 = "param1";
@@ -33,6 +34,10 @@ public class FechaFragment extends DialogFragment implements TextView.OnEditorAc
 
     public FechaFragment() {
         // Required empty public constructor
+    }
+
+    public FechaFragment(String idOrigen) {
+        this.idOrigen = idOrigen;
     }
 
     public String getFechaSeleccionadaString() {
@@ -58,8 +63,7 @@ public class FechaFragment extends DialogFragment implements TextView.OnEditorAc
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fecha, container, false);
         //getDialog().setTitle("Simple Dialog");
@@ -68,16 +72,16 @@ public class FechaFragment extends DialogFragment implements TextView.OnEditorAc
         btnSelcionarFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity = getActivity();
-                int dia = datePicker.getDayOfMonth();
-                int mes = datePicker.getMonth() + 1;
-                int anio = datePicker.getYear();
-                Toast.makeText(v.getContext(), "Fecha selccionada : " + dia + "/" + mes + "/" + anio, Toast.LENGTH_SHORT).show();
-                //Log.d("FRAGMENT CLICK", txtCorreo.getText().toString());
-                fechaSeleccionadaString = anio + "-" + mes + "-" + dia;
-                HistorialActivity activity = (HistorialActivity) getActivity();
-                activity.onFinishEditDialog(fechaSeleccionadaString + "::" + idOrigen);
-                dismiss();
+            activity = getActivity();
+            int dia = datePicker.getDayOfMonth();
+            int mes = datePicker.getMonth() + 1;
+            int anio = datePicker.getYear();
+            Toast.makeText(v.getContext(), "Fecha selccionada : " + dia + "/" + mes + "/" + anio, Toast.LENGTH_SHORT).show();
+            //Log.d("FRAGMENT CLICK", txtCorreo.getText().toString());
+            fechaSeleccionadaString = anio + "-" + mes + "-" + dia;
+            ReporteActivity activity = (ReporteActivity) getActivity();
+            activity.onFinishEditDialog(fechaSeleccionadaString + "::" + idOrigen);
+            dismiss();
             }
         });
 
