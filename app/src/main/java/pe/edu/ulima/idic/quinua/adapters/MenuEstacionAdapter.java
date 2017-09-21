@@ -26,8 +26,9 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
     public MenuEstacionAdapter(Context context, int idSendor) {
         List<String> items = new ArrayList<>();
         items.add("Promedio por día en rango de fechas");
-        items.add("Rango de tiempo por día");
-        items.add("Máximos y minimos por día");
+        items.add("Máximo y minimo en rango de fechas");
+        items.add("Máximo, minimo y promedio en rango de fechas");
+        items.add("Mediciones por rango de tiempo de un día");
         this.context = context;
         this.items = items;
         this.idSensor = idSendor;

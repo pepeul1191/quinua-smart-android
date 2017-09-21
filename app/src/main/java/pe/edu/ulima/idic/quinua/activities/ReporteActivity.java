@@ -1,7 +1,9 @@
 package pe.edu.ulima.idic.quinua.activities;
 
 import android.app.FragmentManager;
+import android.net.Uri;
 import android.os.StrictMode;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,14 +15,13 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 
-import java.util.ArrayList;
-
 import pe.edu.ulima.idic.quinua.R;
 import pe.edu.ulima.idic.quinua.fragments.FechaFragment;
+import pe.edu.ulima.idic.quinua.reportes.RangoFechasFragment;
 import pe.edu.ulima.idic.quinua.utils.Constants;
 import pe.edu.ulima.idic.quinua.utils.Httparty;
 
-public class ReporteActivity extends AppCompatActivity implements FechaFragment.OnFragmentInteractionListener{
+public class ReporteActivity extends AppCompatActivity implements FechaFragment.OnFragmentInteractionListener, RangoFechasFragment.OnFragmentInteractionListener {
 
     private int ideSensor;
     private LinearLayout linearFechaInicio;
@@ -30,20 +31,43 @@ public class ReporteActivity extends AppCompatActivity implements FechaFragment.
     private Button btnEnviarRangoFechas;
     private String itemReporte;
 
+    public TextView getTxtInicio() {
+        return txtInicio;
+    }
+
+    public TextView getTxtFin() {
+        return txtFin;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         int idSensor = Integer.parseInt(getIntent().getStringExtra("idSensor"));
         String itemRerpote = getIntent().getStringExtra("itemReporte");
-        //Log.d("idSensor", idSensor + "");
-        //Log.d("itemReporte", itemRerpote);
         this.ideSensor = idSensor;
         this.itemReporte = itemRerpote;
         setContentView(R.layout.activity_reporte);
-        this.txtInicio = (TextView) findViewById(R.id.txtInicio);
-        this.txtFin = (TextView) findViewById(R.id.txtFin);
         this.lblTituloReporte = (TextView) findViewById(R.id.lblTituloReporte);
         this.lblTituloReporte.setText(itemRerpote);
+        final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        switch (itemRerpote){
+            case "Promedio por día en rango de fechas":
+                transaction.replace(R.id.content, new RangoFechasFragment());
+                break;
+            case "Máximo y minimo en rango de fechas":
+                transaction.replace(R.id.content, new RangoFechasFragment());
+                break;
+            case "Máximo, minimo y promedio en rango de fechas":
+                transaction.replace(R.id.content, new RangoFechasFragment());
+                break;
+            case "Mediciones por rango de tiempo de un día":
+
+                break;
+        }
+
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     public int getIdeSensor() {
@@ -75,9 +99,11 @@ public class ReporteActivity extends AppCompatActivity implements FechaFragment.
     public void onFinishEditDialog(String rptaFechaFragment) {
         String[] rpta = rptaFechaFragment.split("::");
         if(rpta[1].equalsIgnoreCase("inicio")){
-            txtInicio.setText(rpta[0]);
+            this.txtInicio = (TextView) findViewById(R.id.txtInicio);
+            this.getTxtInicio().setText(rpta[0]);
         }else if(rpta[1].equalsIgnoreCase("fin")){
-            txtFin.setText(rpta[0]);
+            this.txtFin = (TextView) findViewById(R.id.txtFin);
+            this.getTxtFin().setText(rpta[0]);
         }
     }
 
@@ -104,5 +130,10 @@ public class ReporteActivity extends AppCompatActivity implements FechaFragment.
         }
 
         Log.d("SETDATE", "XD");
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
