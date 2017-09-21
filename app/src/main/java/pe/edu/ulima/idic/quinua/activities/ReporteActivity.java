@@ -1,16 +1,24 @@
 package pe.edu.ulima.idic.quinua.activities;
 
 import android.app.FragmentManager;
+import android.os.StrictMode;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+
 import pe.edu.ulima.idic.quinua.R;
 import pe.edu.ulima.idic.quinua.fragments.FechaFragment;
+import pe.edu.ulima.idic.quinua.utils.Constants;
+import pe.edu.ulima.idic.quinua.utils.Httparty;
 
 public class ReporteActivity extends AppCompatActivity implements FechaFragment.OnFragmentInteractionListener{
 
@@ -18,6 +26,7 @@ public class ReporteActivity extends AppCompatActivity implements FechaFragment.
     private LinearLayout linearFechaInicio;
     private TextView txtInicio;
     private TextView txtFin;
+    private Button btnEnviarRangoFechas;
     private String itemReporte;
 
     @Override
@@ -67,6 +76,30 @@ public class ReporteActivity extends AppCompatActivity implements FechaFragment.
         }else if(rpta[1].equalsIgnoreCase("fin")){
             txtFin.setText(rpta[0]);
         }
+    }
 
+    public void btnEnviarRangoFechasClick(View v){
+        Log.d("TAB", "btnEnviarRangoFechasClick");
+        this.setData();
+    }
+
+    private void setData() {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        JSONArray historiosJSON = null;
+        try{
+            //String urlHistorico = Constants.BASE_URL + "sensor/historico/" + this.getIdeSensor() + "?fecha_inicio=2017-01-01&fecha_fin=2017-08-10";
+            String urlHistorico = Constants.BASE_URL + "sensor/historico/" + this.getIdeSensor() + "?fecha_inicio=" + txtInicio.getText() + "&fecha_fin=" + txtFin.getText();
+            Httparty httpartyHistorico = new Httparty(urlHistorico, "GET");
+            httpartyHistorico.action();
+
+            historiosJSON = new JSONArray(httpartyHistorico.getRpta());
+            Log.d("JSON", historiosJSON.toString());
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        Log.d("SETDATE", "XD");
     }
 }
