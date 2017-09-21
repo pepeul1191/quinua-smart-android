@@ -26,6 +26,7 @@ public class ReporteActivity extends AppCompatActivity implements FechaFragment.
     private LinearLayout linearFechaInicio;
     private TextView txtInicio;
     private TextView txtFin;
+    private TextView lblTituloReporte;
     private Button btnEnviarRangoFechas;
     private String itemReporte;
 
@@ -41,6 +42,8 @@ public class ReporteActivity extends AppCompatActivity implements FechaFragment.
         setContentView(R.layout.activity_reporte);
         this.txtInicio = (TextView) findViewById(R.id.txtInicio);
         this.txtFin = (TextView) findViewById(R.id.txtFin);
+        this.lblTituloReporte = (TextView) findViewById(R.id.lblTituloReporte);
+        this.lblTituloReporte.setText(itemRerpote);
     }
 
     public int getIdeSensor() {
