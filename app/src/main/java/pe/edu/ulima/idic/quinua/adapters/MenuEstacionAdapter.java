@@ -81,11 +81,9 @@ public class MenuEstacionAdapter extends BaseAdapter implements ListAdapter {
                 @Override
                 public void onClick(View view) {
                 try{
-                    Log.d("idSensor",(Integer)view.getTag() + "");
-                    String x = (String) menuSensorItem.getText();
-                    Log.d("TEXTO", x);
-
                     Intent intent = new Intent(getContext(), ReporteActivity.class);
+                    intent.putExtra("idSensor", view.getTag() + "");
+                    intent.putExtra("itemReporte", (String) menuSensorItem.getText());
                     getContext().startActivity(intent);
                 }catch (Exception e){
                     Log.d("TRY1", e.toString());
